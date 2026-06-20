@@ -87,6 +87,3 @@ fn RoundHandler() {
     // ...
 }
 ```
-
-## License
-**TODO** - MIT + Apache-2.0

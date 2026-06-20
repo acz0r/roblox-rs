@@ -1,0 +1,3 @@
+[workspace]
+resolver = "3"
+members = ["bindgen", "docs", "macros","roblox-rs", "transpiler"]

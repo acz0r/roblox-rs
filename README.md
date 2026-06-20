@@ -23,7 +23,7 @@
 ```Rust
 use roblox_rs::*;
 
-static msg_event: RemoteEvent<String> = wait_for("game.ReplicatedStorage.MsgEvent");
+static msg_event: RemoteEvent<String> = wait_for!("game.ReplicatedStorage.MsgEvent");
 
 #[script(parent = "game.ServerScriptService")]
 fn Server() {

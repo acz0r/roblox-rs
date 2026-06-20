@@ -23,8 +23,12 @@
 ```Rust
 use roblox_rs::*;
 
+// All Instances are safe to use and share in global scope.
+// `wait_for!` evaluates to an Instance (and its specific class type) at compile time based on live information from Roblox Studio.
+// Here, we still have to specify what kind of message the RemoteEvent handles, so we must tell the compiler explicitly.
 static msg_event: RemoteEvent<String> = wait_for!("game.ReplicatedStorage.MsgEvent");
 
+// `script` defines a script scope. You can have multiple scripts in the same file.
 #[script(parent = "game.ServerScriptService")]
 fn Server() {
     println!("Hello from server!");
@@ -60,6 +64,8 @@ fn RoundHandler() {
     }
 
     let mut num_players = 0u32;
+
+    // Services like `Players` are available as singleton instances.
     let added_conn = PLAYERS.player_added().connect(|_conn, _player| {
         log_players("Waiting for players...", num_players);
         num_players += 1;

@@ -51,7 +51,7 @@ const REQUIRED_PLAYERS: u32 = 6;
 #[script(parent = "game.ServerScriptService")]
 fn RoundHandler() {
     fn log_players(msg: impl AsRef<str>, num_players: u32) {
-        println!("{} ({}/6)", msg, num_players);
+        println!("{} ({}/{})", msg, num_players, REQUIRED_PLAYERS);
     }
 
     fn start_round() {
